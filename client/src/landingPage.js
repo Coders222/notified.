@@ -5,6 +5,7 @@ import React from 'react';
 import styled from 'styled-components'; 
 
 
+
 function LandingPage() {
 
   const Container = styled.div`
@@ -56,7 +57,11 @@ function LandingPage() {
     align-text: center;
     position: relative;
 
+  `
 
+  const Description = styled.div`
+  
+  
   `
   return (
     <Container>
