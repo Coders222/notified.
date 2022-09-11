@@ -4,7 +4,7 @@ import React from 'react';
 import styled from 'styled-components'; 
 
 
-function landingPage() {
+function LandingPage() {
 
   const Container = styled.div`
     width: 100%;
@@ -43,4 +43,4 @@ function landingPage() {
   );
 }
 
-export default landingPage;
+export default LandingPage;
