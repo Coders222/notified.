@@ -73,7 +73,7 @@ function LandingPage() {
 
   const Oval = styled.button`
     &:hover {
-        background-color: #FFD8A9;
+        background-color: ${colors.mocha};
         transition: background-color 1s;
     }    
     &:active {
@@ -83,7 +83,7 @@ function LandingPage() {
     }    
     width: 30vw;
     height: 8vh;
-    background: #000000;
+    background: #DDB892;
     border-radius: 50%;
     border: none;
     border-radius: 64px;
@@ -92,8 +92,8 @@ function LandingPage() {
     cursor: pointer;
     top: 38vw;
     left: 38vw;
-    font-size: 3.0vw;
-    color: ${colors.mocha};
+    font-size: 2.0vw;
+    color: #FFFFFF;
     font-weight: 900;
   `
   return (
@@ -110,7 +110,7 @@ function LandingPage() {
                 </TextWrapper>
             </Textbox>
             <Oval> 
-              Get Started
+              Click to Start Noting
             </Oval>
         </Background>
 
