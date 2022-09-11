@@ -35,6 +35,7 @@ function Nav() {
                 <Link href='https://andyliang.xyz/'>Subjects</Link>
                 <Link href='https://andyliang.xyz/'>Contact</Link>
                 <Link href='https://andyliang.xyz/'>Search</Link>
+                <Link href='/#/upload'>Upload</Link>
             </Links>
         </Container>
     );
