@@ -77,7 +77,7 @@ function LandingPage() {
         transition: background-color 1s;
     }    
     &:active {
-        background-color: #F1A661;
+        background-color: #DDB892;
         background-size: 100%;
         transition: background 0s;
     }    
