@@ -31,17 +31,15 @@ function LandingPage() {
     left: 1vw;
   `
   const BackgroundDiv = styled.div`
-    width: 99vw;
-    height: 100vw;
     display: flex;
     justify-contents: center;
 
-    
 
   `
   const Background = styled.div`
-    width: 80vw;
-    height: 50vw;
+    width: 90vw;
+    height: 40vw;
+    margin-top: 1vh;
     margin-left: auto;
     margin-right: auto;
     background-image: url(${bg});
