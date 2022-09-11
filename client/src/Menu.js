@@ -92,7 +92,7 @@ function Images(){
             <Container>
 
                 <Row>
-                    <Box>
+                    <Box href='/#/documents'>
                         <Math/>
                         <Subtitle>Math</Subtitle>
                     </Box>

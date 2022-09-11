@@ -7,7 +7,7 @@ import LandingPage from './LandingPage';
 import Nav from './Nav';
 import Menu from './Menu';
 import Upload from './Upload';
-import About from './About';
+import Documents from './Documents';
 
 function App() {
 
@@ -17,8 +17,8 @@ function App() {
             <Routes>
                  <Route exact path='/' element={<LandingPage/>}></Route>
                  <Route exact path='/menu' element={<Menu/>}></Route>
-                 <Route exact path='/about' element={<About/>}></Route>
                  <Route exact path='/upload' element={<Upload/>}></Route>
+                 <Route exact path='/documents' element={<Documents/>}></Route>
           </Routes>
         </div>
       </Router>
