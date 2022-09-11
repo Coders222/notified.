@@ -3,9 +3,12 @@ import logo from './images/logo.png';
 import bg from './images/frontBackground.png'
 import React from 'react';
 import styled from 'styled-components'; 
+import theme from './theme';
+import './index.css';
 
 
-
+const {fonts} = theme;
+const {colors} = theme;
 function LandingPage() {
 
   const Container = styled.div`
@@ -30,12 +33,7 @@ function LandingPage() {
     position: relative;
     left: 1vw;
   `
-  const BackgroundDiv = styled.div`
-    display: flex;
-    justify-contents: center;
 
-
-  `
   const Background = styled.div`
     width: 90vw;
     height: 40vw;
@@ -47,24 +45,56 @@ function LandingPage() {
     background-position: center;
     background-size: cover;
     display: flex;
-    justify-contents: center;
+    position: relative;
+
     
   `;
   
   const Textbox = styled.div`
     width: 40vw;
     height: 20vw;
-    align-text: center;
     position: relative;
-    background-color: green;
     margin: auto;
-    bottom: 5vw;
+    bottom: 2vw;
 
   `
 
-  const Description = styled.div`
-  
-  
+  const TextWrapper = styled.div`
+    width: 33vw;
+    height: 15vw;
+    display: inline-block;
+    position: relative;
+    text-align: left;
+    font-size: 5.0vw;
+    color: ${colors.mocha};
+    font-weight: 900;
+    
+  `
+
+  const Oval = styled.button`
+    &:hover {
+        background-color: #FFD8A9;
+        transition: background-color 1s;
+    }    
+    &:active {
+        background-color: #F1A661;
+        background-size: 100%;
+        transition: background 0s;
+    }    
+    width: 30vw;
+    height: 8vh;
+    background: #000000;
+    border-radius: 50%;
+    border: none;
+    border-radius: 64px;
+    position: fixed;
+    display: inline-block;
+    cursor: pointer;
+    top: 38vw;
+    left: 38vw;
+    font-size: 3.0vw;
+    color: ${colors.mocha};
+    font-weight: 900;
   `
   return (
     <Container>
@@ -73,14 +103,17 @@ function LandingPage() {
         </Header>
         
           
-        <BackgroundDiv>
-          <Background>
-              <Textbox>
-                The Robinhood for Students.
-              </Textbox>
-          </Background>
+        <Background>
+            <Textbox>
+                <TextWrapper>
+                  The Robinhood for Students.
+                </TextWrapper>
+            </Textbox>
+            <Oval> 
+              Get Started
+            </Oval>
+        </Background>
 
-        </BackgroundDiv>
          
           
     </Container>
