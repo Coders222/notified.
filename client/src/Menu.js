@@ -67,15 +67,15 @@ function Images(){
         margin: auto;
         border-style: solid;
         background-color: transparent;
-        &:hover {
-            background-color: ${colors.mocha};
-            transition: background-color 1s;
-        }    
-        &:active {
-            background-color: #DDB892;
-            background-size: 100%;
-            transition: background 0s;
-        }   
+            &:hover {
+        background-color: ${colors.mocha};
+        transition: background-color 1s;
+    }    
+    &:active {
+        background-color: #DDB892;
+        background-size: 100%;
+        transition: background 0s;
+    }   
 
     `
 
