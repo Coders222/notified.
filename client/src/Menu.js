@@ -23,6 +23,7 @@ function Images(){
         height: 44.4vw;
         display: flex;
         justify-content: center; 
+        vertical-align: middle;
 
     `
     const Math = styled.div`
@@ -33,18 +34,19 @@ function Images(){
         background-size: cover;
         background-image: url(${img2});
         margin: auto;
-        margin-bottom: 20vw;
+        margin-top: 1vw;
 
     `
     const Chemistry = styled.div`
-        width: 20vw;
-        height: 20vw;
+        width: 15vw;
+        height: 15vw;
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
         background-image: url(${img3});
         margin: auto;
-        margin-bottom: 20vw;
+        margin-top: 1vw;
+
 
     `
     const Accounting = styled.div`
@@ -54,11 +56,25 @@ function Images(){
         background-position: center;
         background-size: cover;
         background-image: url(${img1});
-        margin: auto;        
-        margin-bottom: 20vw;
+        margin: auto;
+        margin-top: 1vw;
+                
+    `
 
+    const Box = styled.button`
+        height: 22vw;
+        width: 20vw;
+        margin: auto;
+        border-style: solid;
+        background-color: transparent;
 
     `
+
+    const Subtitle = styled.div`
+        font-size: 3.0vw;
+        font-weight: 900;
+    `
+
 
 
     return(
@@ -67,16 +83,25 @@ function Images(){
             <Container>
 
                 <Row>
-                    <Math>
-                        Mathematics
-                    </Math>
+                    <Box>
+                        <Math/>
+                        <Subtitle>Math</Subtitle>
+                    </Box>
+                   
+                    <Box>
+                        <Chemistry/>
+                        <Subtitle>Chemistry</Subtitle>
 
-                    <Chemistry>
 
-                    </Chemistry>
-                    <Accounting>
+                    </Box>
+                    
+                    <Box>
+                        <Accounting/>
+                        <Subtitle>Accounting</Subtitle>
 
-                    </Accounting>
+                    </Box>
+
+
                 </Row>
 
             </Container>
