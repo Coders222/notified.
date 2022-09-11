@@ -1,5 +1,6 @@
 import styled from 'styled-components'; 
 import logo from './images/logo.png';
+import github from './images/gitLogo.png';
 function Nav() {
     const Container = styled.div`
         width: 99vw;
@@ -28,6 +29,16 @@ function Nav() {
         }
         color:#000000;
     `
+    
+    const Github = styled.a`
+        width:3vw;
+        background-image: url(${github});
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: 2vw;
+        margin-left: 42vw;
+        margin-top: 2vh;
+    `
     return (
         <Container>
             <Logo></Logo>
@@ -37,6 +48,7 @@ function Nav() {
                 <Link href='https://andyliang.xyz/'>Search</Link>
                 <Link href='/#/upload'>Upload</Link>
             </Links>
+            <Github href='https://github.com/Coders222/AutumnHacks'></Github>
         </Container>
     );
   }
