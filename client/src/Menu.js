@@ -61,12 +61,14 @@ function Images(){
                 
     `
 
-    const Box = styled.button`
+    const Box = styled.a`
         height: 22vw;
         width: 20vw;
         margin: auto;
         border-style: solid;
         background-color: transparent;
+        border-color: black;
+        color: black;
             &:hover {
         background-color: ${colors.mocha};
         transition: background-color 1s;
@@ -82,6 +84,7 @@ function Images(){
     const Subtitle = styled.div`
         font-size: 3.0vw;
         font-weight: 900;
+        margin-top: 1vw;
     `
 
 
@@ -97,14 +100,14 @@ function Images(){
                         <Subtitle>Math</Subtitle>
                     </Box>
                    
-                    <Box>
+                    <Box href='/#/documents'>
                         <Chemistry/>
                         <Subtitle>Chemistry</Subtitle>
 
 
                     </Box>
                     
-                    <Box>
+                    <Box href='/#/documents'>
                         <Accounting/>
                         <Subtitle>Accounting</Subtitle>
 
