@@ -10,8 +10,8 @@ const {fonts} = theme;
 const {colors} = theme;
 function Upload() {
     const Container = styled.div`
-        width: 99vw;
-
+        width: 100vw;
+        
         display: flex;
         flex-direction: column;
         
@@ -33,7 +33,8 @@ function Upload() {
         align-items: center;
         justify-content: center;
         background-color: ${colors.lightBeige}; 
-        height:30vw;
+        height:78.6vh;
+        width: 100%;
     `
     const Header = styled.div`
         font-size:3vw;
