@@ -8,7 +8,6 @@ import Nav from './Nav';
 import Menu from './Menu';
 import About from './About';
 import Upload from './Upload';
-import About from './About';
 import Documents from './Documents';
 
 function App() {
