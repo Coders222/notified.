@@ -5,7 +5,7 @@ const theme = {
         tan: '#F1A661',
         orange: '#E38B29',
         title: '#C07010',
-        mocha: '#D88A6F'
+        mocha: '#DDB892'
     },
     fonts: {
         primary: 'Nunito Sans, sans-serif',
