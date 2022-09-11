@@ -1,6 +1,6 @@
 import styled from 'styled-components'; 
 import Nav from './Nav';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { toast} from 'react-toastify';
 import logo from './images/logo.png';
@@ -11,7 +11,7 @@ const {colors} = theme;
 function Upload() {
     const Container = styled.div`
         width: 99vw;
-        height: 5vw;
+
         display: flex;
         flex-direction: column;
         
@@ -20,6 +20,9 @@ function Upload() {
     const Dropbox = styled.div`
         display: flex;
         flex-direction: column;
+        width:50vw;
+        height:10vw;
+        overflow-y:scroll;
         justify-content: space-between;
         background-color: #FFFFFF; 
     `
@@ -30,7 +33,7 @@ function Upload() {
         align-items: center;
         justify-content: center;
         background-color: ${colors.lightBeige}; 
-
+        height:30vw;
     `
     const Header = styled.div`
         font-size:3vw;
@@ -57,16 +60,57 @@ function Upload() {
         cursor: pointer;
         font-size: 2.0vw;
         font-weight: 900;
-  `
+        text-indent: -999em;
+        content: Choose File;
+        margin-bottom:3vw;
+    `
+    const Submit = styled.button`
+        &:hover {
+            background-color: ${colors.mocha};
+            transition: background-color 1s;
+        }    
+        &:active {
+            background-color: #DDB892;
+            background-size: 100%;
+            transition: background 0s;
+        }    
+        width: 30vw;
+        height: 8vh;
+        background: #DDB892;
+        border-radius: 50%;
+        border: none;
+        border-radius: 64px;
+        display: inline-block;
+        cursor: pointer;
+        font-size: 2.0vw;
+        font-weight: 900;
+        margin-top:3vw;
+    `
     const [files, setFiles] = useState([]);
     const [process, setProcess] = useState(false);
-
+    const [selectedFile, setSelectedFile] = useState();
+    const [preview, setPreview] = useState();
+    
+    
     const onInputChange = (e) => {
         setFiles(e.target.files)
+        if (!e.target.files || e.target.files.length === 0) {
+            setSelectedFile(undefined)
+            return
+        }
+        setSelectedFile(e.target.files[0])
+        const reader = new FileReader()
+        reader.onload = function(e) {
+            var content = reader.result;
+            setPreview(content);
+            console.log(preview);
+        }
+        reader.readAsText(e.target.files[0]);
+        console.log(preview);
     };
     const onSubmit = (e) =>{
         e.preventDefault();
-
+        console.log("Console");
         const data = new FormData();
         console.log(files);
         for(let i = 0; i < files.length; i++) {
@@ -89,11 +133,16 @@ function Upload() {
             <Nav/>
             <UploadContainer>
                 <Header>Upload Notes</Header>
-                <Oval type = "file" onChange={onInputChange} accept = "text/*">
-                </Oval>
-                <Dropbox>
-                    
-                </Dropbox>
+                <form method='post' onSubmit={onSubmit}>
+                    <Oval type = "file" onChange={onInputChange} accept = "text/*" class="hideMe form-control col-lg-2 col-md-2 col-sm-2">
+                    </Oval>
+                    <Dropbox>
+                        {selectedFile && preview}
+                    </Dropbox>
+                    <Submit>
+                        Submit
+                    </Submit>
+                </form>
             </UploadContainer>
         </Container>
     );
