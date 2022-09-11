@@ -3,12 +3,11 @@ import logo from './images/logo.png';
 function Nav() {
     const Container = styled.div`
         width: 99vw;
-        height: 5vw;
+        height: 6vw;
         display:flex;
     `
     const Logo = styled.div`
         width:20vw;
-        height:5vw;
         background-image: url(${logo});
         background-repeat: no-repeat;
         background-position: center;
@@ -36,6 +35,7 @@ function Nav() {
                 <Link href='https://andyliang.xyz/'>Subjects</Link>
                 <Link href='https://andyliang.xyz/'>Contact</Link>
                 <Link href='https://andyliang.xyz/'>Search</Link>
+                <Link href='/#/upload'>Upload</Link>
             </Links>
         </Container>
     );

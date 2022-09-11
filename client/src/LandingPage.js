@@ -70,7 +70,10 @@ function LandingPage() {
     font-weight: 900;
     
   `
-
+  const Started = styled.a`
+    text-decoration:none;
+    color: #FFFFFF;
+  `
   const Oval = styled.button`
     &:hover {
         background-color: ${colors.mocha};
@@ -93,7 +96,7 @@ function LandingPage() {
     top: 38vw;
     left: 38vw;
     font-size: 2.0vw;
-    color: #FFFFFF;
+
     font-weight: 900;
   `
   return (
@@ -109,8 +112,10 @@ function LandingPage() {
                   The Robinhood for Students.
                 </TextWrapper>
             </Textbox>
-            <Oval> 
-              Click to Start Noting
+            <Oval>
+              <Started href='/#/menu'>
+                Click to Start Noting
+              </Started> 
             </Oval>
         </Background>
 
