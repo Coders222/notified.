@@ -4,7 +4,7 @@ import { HashRouter as Router,Routes, Route, Link } from 'react-router-dom';
 import React from 'react';
 import styled from 'styled-components'; 
 import LandingPage from './LandingPage';
-
+import Nav from './Nav';
 
 function App() {
 
