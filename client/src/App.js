@@ -9,6 +9,7 @@ import Menu from './Menu';
 import Upload from './Upload';
 import About from './About';
 
+
 function App() {
 
   return (
@@ -19,6 +20,7 @@ function App() {
                  <Route exact path='/menu' element={<Menu/>}></Route>
                  <Route exact path='/about' element={<About/>}></Route>
                  <Route exact path='/upload' element={<Upload/>}></Route>
+
           </Routes>
         </div>
       </Router>
