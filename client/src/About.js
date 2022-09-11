@@ -110,8 +110,8 @@ function About() {
                         <Box>
                             <Name href='https://andyliang.xyz/'>
                                 Andy orionxroman Nicky Kanaad
-                                <Picture></Picture> <Picture2></Picture2>
                             </Name>
+                            <Picture></Picture> <Picture2></Picture2>
                         </Box>
                     </Creator>
                     
