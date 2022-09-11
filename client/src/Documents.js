@@ -10,17 +10,28 @@ const {colors} = theme;
 function Documents() {
 
     const Container = styled.div`
-        width: 99vw;
-        height: 100vw;
+        width: 100vw;
+        height: 80vw;
+        background-color: ${colors.lightBeige};
+        display: flex;
+        justify-content: center;
+
+    `
+
+    const Frame = styled.iframe`
+        width: 80vw;
+        height: 80vw;
+    
     `
 
     return  (
-        <Container>
+        <div>
             <Nav/>
+            <Container>
+            </Container>
 
-           
-
-        </Container>
+        </div>
+        
     );
 
 

@@ -43,7 +43,7 @@ function Nav() {
         <Container>
             <Logo></Logo>
             <Links>
-                <Link href='https://andyliang.xyz/'>Subjects</Link>
+                <Link href='/#/menu'>Subjects</Link>
                 <Link href='/#/about'>About</Link>
                 <Link href='https://andyliang.xyz/'>Search</Link>
                 <Link href='/#/upload'>Upload</Link>
