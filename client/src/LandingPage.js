@@ -46,14 +46,19 @@ function LandingPage() {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    display: flex;
+    justify-contents: center;
     
   `;
   
   const Textbox = styled.div`
-    width: 30vh;
-    height: 20vh;
+    width: 40vw;
+    height: 20vw;
     align-text: center;
     position: relative;
+    background-color: green;
+    margin: auto;
+    bottom: 5vw;
 
   `
 
@@ -71,6 +76,7 @@ function LandingPage() {
         <BackgroundDiv>
           <Background>
               <Textbox>
+                The Robinhood for Students.
               </Textbox>
           </Background>
 
