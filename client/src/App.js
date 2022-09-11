@@ -3,6 +3,7 @@ import img from './images/logo.png';
 import { HashRouter as Router,Routes, Route, Link } from 'react-router-dom';
 import React from 'react';
 import styled from 'styled-components'; 
+import LandingPage from './LandingPage';
 
 
 function App() {
