@@ -51,6 +51,6 @@ function Nav() {
             <Github href='https://github.com/Coders222/AutumnHacks' target="_blank"></Github>
         </Container>
     );
-  }
+}
   
   export default Nav;
