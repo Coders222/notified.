@@ -1,3 +1,3 @@
 # AutumnHacks
 
-Our subnmission for AutumnHacks
+Our submission for AutumnHacks
