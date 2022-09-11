@@ -48,9 +48,9 @@ function Nav() {
                 <Link href='https://andyliang.xyz/'>Search</Link>
                 <Link href='/#/upload'>Upload</Link>
             </Links>
-            <Github href='https://github.com/Coders222/AutumnHacks'target="_blank"></Github>
+            <Github href='https://github.com/Coders222/AutumnHacks' target="_blank"></Github>
         </Container>
     );
-  }
+}
   
   export default Nav;
