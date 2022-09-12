@@ -13,10 +13,9 @@ const {colors} = theme;
 function Documents(props) {
     const Container = styled.div`
         padding-top:3vw;
-        width: 100vw;
+        width: 99.2vw;
         height: 80vw;
         background-color: ${colors.lightBeige};
-        
         justify-content: center;
 
     `
@@ -71,6 +70,9 @@ function Documents(props) {
         margin-bottom:auto;
         font-weight:900;
     `
+
+    
+  
     const {subject} = useParams();
     let subjectData = undefined;
     if(subject in data){
