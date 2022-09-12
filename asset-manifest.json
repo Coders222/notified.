@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/AutumnHacks/static/css/main.a698f30e.css",
-    "main.js": "/AutumnHacks/static/js/main.9c0adc5a.js",
-    "static/media/orion.jpg": "/AutumnHacks/static/media/orion.06be99ef1fb0afa97656.jpg",
-    "static/media/andy.png": "/AutumnHacks/static/media/andy.377c78f3d2863361cd0c.png",
-    "static/media/MathLogo.png": "/AutumnHacks/static/media/MathLogo.7fd6ac0e37aa9a591765.png",
-    "static/media/logo.png": "/AutumnHacks/static/media/logo.9c0f25136900635c2384.png",
-    "static/media/noteIcon.png": "/AutumnHacks/static/media/noteIcon.0d0f9e0ece013cb25d47.png",
-    "static/media/ScienceLogo.png": "/AutumnHacks/static/media/ScienceLogo.b4d8e39cb0cebaeae3fa.png",
-    "static/media/AccountingLogo.png": "/AutumnHacks/static/media/AccountingLogo.9fd6d39a7ec44cc6b43f.png",
-    "static/media/testIcon.png": "/AutumnHacks/static/media/testIcon.1695fef24da0262917ab.png",
-    "static/media/gitLogo.png": "/AutumnHacks/static/media/gitLogo.bd793a607a91eeda6036.png",
-    "index.html": "/AutumnHacks/index.html",
-    "main.a698f30e.css.map": "/AutumnHacks/static/css/main.a698f30e.css.map",
-    "main.9c0adc5a.js.map": "/AutumnHacks/static/js/main.9c0adc5a.js.map"
+    "main.css": "/static/css/main.a698f30e.css",
+    "main.js": "/static/js/main.33f8e26a.js",
+    "static/media/orion.jpg": "/static/media/orion.06be99ef1fb0afa97656.jpg",
+    "static/media/andy.png": "/static/media/andy.377c78f3d2863361cd0c.png",
+    "static/media/MathLogo.png": "/static/media/MathLogo.7fd6ac0e37aa9a591765.png",
+    "static/media/logo.png": "/static/media/logo.9c0f25136900635c2384.png",
+    "static/media/noteIcon.png": "/static/media/noteIcon.0d0f9e0ece013cb25d47.png",
+    "static/media/ScienceLogo.png": "/static/media/ScienceLogo.b4d8e39cb0cebaeae3fa.png",
+    "static/media/AccountingLogo.png": "/static/media/AccountingLogo.9fd6d39a7ec44cc6b43f.png",
+    "static/media/testIcon.png": "/static/media/testIcon.1695fef24da0262917ab.png",
+    "static/media/gitLogo.png": "/static/media/gitLogo.bd793a607a91eeda6036.png",
+    "index.html": "/index.html",
+    "main.a698f30e.css.map": "/static/css/main.a698f30e.css.map",
+    "main.33f8e26a.js.map": "/static/js/main.33f8e26a.js.map"
   },
   "entrypoints": [
     "static/css/main.a698f30e.css",
-    "static/js/main.9c0adc5a.js"
+    "static/js/main.33f8e26a.js"
   ]
 }
