@@ -17,10 +17,17 @@
         {
           "name": "Test: Unit 1",
           "link": "https://drive.google.com/file/d/1J5tULyhMxRzWY0FiRvPsqC8E69v8fd0k/preview"
-        },{
+        },
+        {
           "name": "Test: Unit 2",
           "link": "https://drive.google.com/file/d/10IuMr8i0f1rYdJQFYwliWVGI2tyq5G7h/preview"
-        }        
+        },
+        {
+          "name": "Test: Polynomials",
+          "link": "https://npc.gvsd.ca/web/mdyck/NPC%20Website/PCM40S/Extra%20Practice/3_Practice_Test_Solutions.pdf"
+        }      
+        
+        
       ]
     },
     "chemistry":{
@@ -55,7 +62,11 @@
         {
           "name": "Unit 3: EAS",
           "link": "https://drive.google.com/file/d/17f-HBR5M0T88FdX5NYzR2n--ndNFlGQz/preview"
-        } 
+        },
+        {
+          "name": "Test",
+          "link": "https://www.mrbigler.com/Chemistry-1/Notes-Chemistry-1.pdf"
+        }
       ],
       "tests": [
             

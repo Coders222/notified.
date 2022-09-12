@@ -31,7 +31,7 @@ function Documents(props) {
     const Frame = styled.iframe`
         width: 40vw;
         height: 40vw;
-        
+        frameBorder:0;
     
     `
     const DataWrapper = styled.div`
