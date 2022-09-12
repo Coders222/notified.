@@ -95,19 +95,19 @@ function Images(){
             <Container>
 
                 <Row>
-                    <Box href='/#/documents'>
+                    <Box href='/#/documents/math'>
                         <Math/>
                         <Subtitle>Math</Subtitle>
                     </Box>
                    
-                    <Box href='/#/documents'>
+                    <Box href='/#/documents/chemistry'>
                         <Chemistry/>
                         <Subtitle>Chemistry</Subtitle>
 
 
                     </Box>
                     
-                    <Box href='/#/documents'>
+                    <Box href='/#/documents/accounting'>
                         <Accounting/>
                         <Subtitle>Accounting</Subtitle>
 
