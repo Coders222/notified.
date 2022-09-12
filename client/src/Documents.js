@@ -43,6 +43,11 @@ function Documents(props) {
         background-color: ${colors.tan};
         margin-left:auto;
         margin-right:10vw;
+        width: 40vw;
+        height: 40vw;
+        display:flex;
+        justify-content:center;
+        
     `
     const File = styled.div`
         margin-bottom:2vw;
@@ -59,6 +64,12 @@ function Documents(props) {
         width:2vw;
         height:2.5vw;
         margin-right:2vw;
+    `
+    const Empty = styled.div`
+        font-size:2vw;
+        margin-top:auto;
+        margin-bottom:auto;
+        font-weight:900;
     `
     const {subject} = useParams();
     let subjectData = undefined;
@@ -90,7 +101,8 @@ function Documents(props) {
                         {files}
                     </FileNav>
                     <FrameWrapper>
-                    <Frame src={curFile}></Frame>
+                        {curFile && <Frame src={curFile}></Frame>}
+                        {!curFile && <Empty>Choose a File</Empty>}
                     </FrameWrapper>
                     
                 </DataWrapper>
