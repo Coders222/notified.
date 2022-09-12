@@ -22,5 +22,25 @@
           "link": "https://drive.google.com/file/d/10IuMr8i0f1rYdJQFYwliWVGI2tyq5G7h/preview"
         }        
       ]
+    },
+    "chemistry":{
+      "notes": [
+        
+      ],
+      "tests": [
+        {
+          "name": "Test: Matter",
+          "link": "https://drive.google.com/file/d/1kCJbrn8v3VDxXFAUa3_rW3EKvq-Tf7_w/preview"
+        },
+        {
+          "name": "Test: Reactions",
+          "link": "https://drive.google.com/file/d/1FvwucEHsPK37zl5hguQoUW_ei56jpB7t/preview"
+        },
+        {
+          "name": "Test: Molarity",
+          "link": "https://drive.google.com/file/d/1zJb9WmtOEDqmc43NIqQEii2kShByy9W6/preview"
+        }      
+      ]
     }
+
   }
