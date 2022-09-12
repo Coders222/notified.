@@ -1,4 +1,7 @@
 {
+  "subjects": ["math", "chemistry", "accounting"],
+  "fileTypes": ["notes", "tests"],
+  "files":{
     "math": {
       "notes": [
         {
@@ -72,7 +75,7 @@
             
       ]
     }
-
   }
+}
 
   

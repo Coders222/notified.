@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import theme from './theme';
 import Nav from './Nav';
 import { useParams } from 'react-router-dom';
-import data from './Documents.json';
+import temp from './Documents.json';
 import testIcon from './images/testIcon.png';
 import noteIcon from './images/noteIcon.png';
 
@@ -72,7 +72,7 @@ function Documents(props) {
     `
 
     
-  
+    const data = temp.files;
     const {subject} = useParams();
     let subjectData = undefined;
     if(subject in data){
