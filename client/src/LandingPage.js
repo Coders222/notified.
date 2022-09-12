@@ -113,7 +113,7 @@ function LandingPage() {
                 </TextWrapper>
             </Textbox>
             <Oval>
-              <Started href='/#/menu'>
+              <Started href='https://coders222.github.io/AutumnHacks/#/menu'>
                 Click to Start Noting
               </Started> 
             </Oval>

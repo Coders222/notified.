@@ -95,19 +95,19 @@ function Images(){
             <Container>
 
                 <Row>
-                    <Box href='/#/documents/math'>
+                    <Box href='https://coders222.github.io/AutumnHacks/#/documents/math'>
                         <Math/>
                         <Subtitle>Math</Subtitle>
                     </Box>
                    
-                    <Box href='/#/documents/chemistry'>
+                    <Box href='https://coders222.github.io/AutumnHacks/#/documents/chemistry'>
                         <Chemistry/>
                         <Subtitle>Chemistry</Subtitle>
 
 
                     </Box>
                     
-                    <Box href='/#/documents/accounting'>
+                    <Box href='https://coders222.github.io/AutumnHacks/#/documents/accounting'>
                         <Accounting/>
                         <Subtitle>Accounting</Subtitle>
 
