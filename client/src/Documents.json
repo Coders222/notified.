@@ -41,6 +41,27 @@
           "link": "https://drive.google.com/file/d/1zJb9WmtOEDqmc43NIqQEii2kShByy9W6/preview"
         }      
       ]
+    },
+    "accounting":{
+      "notes": [
+        {
+          "name": "Unit 1: Business Ownership",
+          "link": "https://drive.google.com/file/d/1A3zzTRVAz0DOLxjUfcYQmnbaxK95V18s/preview"
+        },
+        {
+          "name": "Unit 2: Balance Sheets",
+          "link": "https://drive.google.com/file/d/1Rg70AwTymv4x5oAn-uFCQwRBd6VOUKSf/preview"
+        },
+        {
+          "name": "Unit 3: EAS",
+          "link": "https://drive.google.com/file/d/17f-HBR5M0T88FdX5NYzR2n--ndNFlGQz/preview"
+        } 
+      ],
+      "tests": [
+            
+      ]
     }
 
   }
+
+  

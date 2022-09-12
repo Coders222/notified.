@@ -52,7 +52,7 @@ function Documents(props) {
         margin-bottom:2vw;
         padding-left:2vw;
         font-family: 'Poor Story', sans-serif;
-        font-size:1.5vw;
+        font-size:1.2vw;
         display:flex;
         cursor: pointer;
         &:hover {
