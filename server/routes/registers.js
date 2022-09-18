@@ -20,7 +20,7 @@ router.route('/').post((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
   
 });
-router.route('/login'), (res,req)=>{
+router.route('/login').post( (req,res)=>{
     Admin.findOne({password:req.body.password}).then(user => {
         if(!user){
             return res.json({
@@ -33,7 +33,7 @@ router.route('/login'), (res,req)=>{
             message: "Welcome to Notified Admin"
         })
     })
-}
+});
 
 
 module.exports = router;

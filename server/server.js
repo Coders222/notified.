@@ -26,7 +26,7 @@ const pendingRouter = require('./routes/pendings')
 const registerRouter = require('./routes/registers')
 app.use('/documents', documentRouter);
 app.use('/pendings',pendingRouter);
-app.use('/register',registerRouter);
+app.use('/registers',registerRouter);
 // Start the server on port 3000
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);

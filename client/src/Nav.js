@@ -47,7 +47,7 @@ function Nav() {
                 <Link href='#/about'>About</Link>
                 <Link href='https://andyliang.xyz/'>Search</Link>
                 <Link href='/#/upload'>Upload</Link>
-                <Link href='/#/adminlock'>Admin</Link>
+                <Link href='/#/admin'>Admin</Link>
             </Links>
             <Github href='https://github.com/Coders222/AutumnHacks' target="_blank"></Github>
         </Container>

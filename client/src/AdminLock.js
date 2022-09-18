@@ -9,7 +9,7 @@ import axios from 'axios';
 
 const {fonts} = theme;
 const {colors} = theme;
-function AdminLock (props) {
+function AdminLock(props){
 
     const Container = styled.div`
         width: 99.1vw;
@@ -54,7 +54,10 @@ function AdminLock (props) {
 
 
     `
-
+    const success = props.success;
+    console.log(success);
+    const [password, setPassword] = useState('');
+    const [message, setMessage] = useState('');
     function myFunction() {
         var x = document.getElementById("myInput");
         if (x.type === "password") {
@@ -66,12 +69,15 @@ function AdminLock (props) {
       }
     
     function onSubmit() {
-        axios.post('http://localhost:5000/registers/login',{password:password})
-        .then(res => res.json())
-        .then(data => (data.admin && success));
+        const user = {
+            password:password
+        };
+        axios.post('http://localhost:5000/registers/login', user)
+        .then(response => ((response.data.admin)? success():setMessage(response.data.message)))
+        // .then(data => (data.admin && success));
     }
-    const [password, setPassword] = useState('');
-    var success = props.success;
+    
+    
     return (
         <div>
             <Nav/>
@@ -82,10 +88,11 @@ function AdminLock (props) {
                         <InputBox
                             required
                             id="myInput"
-                            onChange = {(e) => setPassword(e.target.value)}
                             value = {password}
+                            onChange = {(e) => {setMessage("");setPassword(e.target.value)}}
+                            
                             autoFocus
-                            type="password"
+                            type="text"
                             
                         ></InputBox>
                         <label>
@@ -100,6 +107,7 @@ function AdminLock (props) {
                         <h3>
                             Only real ones in here
                         </h3>
+                        <h2>{message}</h2>
                     </Box>
                 </Container>
 

@@ -22,7 +22,7 @@ function Admin() {
     const [success, setSuccess] = useState(false);
     return (
         <div>
-            {(success) ? <AdminView/> : <AdminLock success={ ()=>setSuccess(true)}/>}
+            {(success) ? <AdminView/> : <AdminLock success= { ()=>{setSuccess(true)}}/>}
         </div>
     )
 
