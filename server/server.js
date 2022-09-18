@@ -1,14 +1,32 @@
 const http = require('http');
+const express = require('express');
+const cors = require('cors');
+const mongoose = require('mongoose');
+
+const dotenv = require('dotenv').config();
+
+const app = express();
+const port = process.env.PORT || 5000;
+
+app.use(cors());
+app.use(express.json());
+
+const uri = process.env.ATLAS_URI;
+
+mongoose.connect(uri
+);
+const connection = mongoose.connection;
+connection.once('open', () => {
+  console.log("MongoDB database connection established successfully");
+})
 
 // Create an instance of the http server to handle HTTP requests
-let app = http.createServer((req, res) => {
-    // Set a response type of plain text for the response
-    res.writeHead(200, {'Content-Type': 'text/plain'});
-
-    // Send back a response and end the connection
-    res.end('Hello World!\n');
-});
+const documentRouter = require('./routes/documents')
+const pendingRouter = require('./routes/pendings')
+app.use('/documents', documentRouter);
+app.use('/pendings',pendingRouter);
 
 // Start the server on port 3000
-app.listen(3000, '127.0.0.1');
-console.log('Node server running on port 3000');
+app.listen(port, () => {
+    console.log(`Listening on port ${port}`);
+});

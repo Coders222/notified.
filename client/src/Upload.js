@@ -7,6 +7,7 @@ import logo from './images/logo.png';
 import theme from './theme';
 import data from './Documents.json';
 
+
 const {fonts} = theme;
 const {colors} = theme;
 function Upload() {
@@ -126,11 +127,17 @@ function Upload() {
     const [process, setProcess] = useState(false);
     const [selectedFile, setSelectedFile] = useState();
     const [preview, setPreview] = useState();
-    const [type, setType] = useState(0);
-    const [subject, setSubject] = useState(subjects[0]);
-    const [fType, setFType] = useState(fTypes[0]);
-    const [link, setLink] = useState(undefined);
-    const [name, setName] = useState("unititled");
+    const [type, setType] = useState(0); //for file type i.e PDF or link
+    // const [fType, setFType] = useState(fTypes[0]);
+    // const [link, setLink] = useState(undefined);
+    // const [fName, setFName] = useState("unititled");
+    const [file, setFile] = useState({
+        topic: `Untitled ${subjects[0]} Topic`,
+        subject: subjects[0],
+        name: "untitled",
+        type: fTypes[0],
+        link: undefined,
+    })
     
     const onInputChange = (e) => {
         setFiles(e.target.files)
@@ -149,41 +156,41 @@ function Upload() {
         console.log(preview);
     };
     const onLinkChange = (e) =>{
-        setLink(e.target.value);
+        e.preventDefault();
+        setFile({...file,link : e.target.value});
     }
     const onNameChange = (e) =>{
-        setName(e.target.value);
+        e.preventDefault();
+        setFile({...file,name : e.target.value});
     }
     const onSubmit = (e) =>{
         e.preventDefault();
-        if(link){
-            const inFile = {
-                name: name,
-                link: link
-            };
-            data.files[subject][fType].append(inFile);
- 
+        console.log("submitted")
+        if(file.link){
+            
+            axios.post('http://localhost:5000/pendings/add',file)
+            .then(res => console.log(res.data));
         }
     }
     const chooseSub = subjects.map((value)=>{
         const styles = {
-            backgroundColor: value == subject?colors.mocha: "transparent",
+            backgroundColor: value == file.subject?colors.mocha: "transparent",
             height:"2vw",
             width: "10vw",
             border: "solid",
 
         }
-        return (value == subject)?<Subject onClick={() => {setSubject(value)}} style = {styles} >{value}</Subject>:<Subject onClick={() => {setSubject(value)}}>{value}</Subject>;
+        return (value == file.subject)?<Subject onClick={() => {setFile({...file, subject:value})}} style = {styles} >{value}</Subject>:<Subject onClick={() => {setFile({...file, subject:value})}}>{value}</Subject>;
     });
     const chooseType = fTypes.map((value)=>{
         const styles = {
-            backgroundColor: value == fType?colors.mocha: "transparent",
+            backgroundColor: value == file.type?colors.mocha: "transparent",
             height:"2vw",
             width: "10vw",
             border: "solid",
 
         }
-        return (value == fType)?<Subject onClick={() => {setFType(value)}} style = {styles} >{value}</Subject>:<Subject onClick={() => {setFType(value)}}>{value}</Subject>;
+        return (value == file.type)?<Subject onClick={() => {setFile({...file, type:value})}} style = {styles} >{value}</Subject>:<Subject onClick={() => {setFile({...file, type:value})}}>{value}</Subject>;
     });
     return (
         <Container>
@@ -194,13 +201,13 @@ function Upload() {
                 <Button onClick={()=> (setType((type+1)%2))}>{type == 0?"File Mode" : "Link Mode"}</Button>
                 <Form method='post' onSubmit={onSubmit}>
                     {type == 0 && <Oval type = "file" onChange={onInputChange} accept = "text/*" class="hideMe form-control col-lg-2 col-md-2 col-sm-2"></Oval>}
-                    {type == 1 && <LinkIn type="text" defaultValue = "Link" onChange={onLinkChange}></LinkIn>}
-                    {type == 1 && <LinkIn type="text" defaultValue = "File Name" onChange={onNameChange}></LinkIn>}
+                    {type == 1 && <LinkIn  type="text"  placeholder = "Link"onChange={onLinkChange} value = {file.link}></LinkIn>}
+                    {type == 1 && <LinkIn autoFocus="autoFocus" type="text"  onChange={onNameChange} value = {file.name}></LinkIn>}
                     <Subjects>{chooseSub}</Subjects>
                     <Subjects>{chooseType}</Subjects>
                     <Dropbox>
                         {type == 0 && selectedFile && preview}
-                        {link && <iframe src = {link}></iframe>}
+                        {file.link && <iframe src = {file.link}></iframe>}
                     </Dropbox>
                     <Submit>
                         Submit
