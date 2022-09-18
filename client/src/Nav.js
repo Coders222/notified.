@@ -22,7 +22,7 @@ function Nav() {
     const Link = styled.a`
         font-family: 'Poor Story', sans-serif;
         font-size:2vw;
-        margin-left:3vw;
+        margin-left:2vw;
         text-decoration: none;
         &:hover{
             font-weight: 900;
@@ -43,10 +43,11 @@ function Nav() {
         <Container>
             <Logo></Logo>
             <Links>
-                <Link href='https://coders222.github.io/AutumnHacks/#/menu'>Subjects</Link>
-                <Link href='https://coders222.github.io/AutumnHacks/#/about'>About</Link>
+                <Link href='/#/menu'>Subjects</Link>
+                <Link href='#/about'>About</Link>
                 <Link href='https://andyliang.xyz/'>Search</Link>
-                <Link href='https://coders222.github.io/AutumnHacks/#/upload'>Upload</Link>
+                <Link href='/#/upload'>Upload</Link>
+                <Link href='/#/adminlock'>Admin</Link>
             </Links>
             <Github href='https://github.com/Coders222/AutumnHacks' target="_blank"></Github>
         </Container>
