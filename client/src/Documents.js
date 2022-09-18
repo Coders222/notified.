@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import theme from './theme';
 import Nav from './Nav';
 import { useParams } from 'react-router-dom';
-import data from './Documents.json';
+import temp from './Documents.json';
 import testIcon from './images/testIcon.png';
 import noteIcon from './images/noteIcon.png';
 
@@ -31,7 +31,7 @@ function Documents(props) {
     const Frame = styled.iframe`
         width: 40vw;
         height: 40vw;
-        
+        frameBorder:0;
     
     `
     const DataWrapper = styled.div`
@@ -52,7 +52,7 @@ function Documents(props) {
         margin-bottom:2vw;
         padding-left:2vw;
         font-family: 'Poor Story', sans-serif;
-        font-size:1.5vw;
+        font-size:1.2vw;
         display:flex;
         cursor: pointer;
         &:hover {
@@ -72,7 +72,7 @@ function Documents(props) {
     `
 
     
-  
+    const data = temp.files;
     const {subject} = useParams();
     let subjectData = undefined;
     if(subject in data){

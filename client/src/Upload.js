@@ -5,10 +5,12 @@ import axios from 'axios';
 import { toast} from 'react-toastify';
 import logo from './images/logo.png';
 import theme from './theme';
+import data from './Documents.json';
 
 const {fonts} = theme;
 const {colors} = theme;
 function Upload() {
+    
     const Container = styled.div`
         width: 100vw;
         
@@ -29,9 +31,9 @@ function Upload() {
     const UploadContainer = styled.div`
         display: flex;
         flex-direction: column;
-        padding-top: 5vw;
+        padding-top: 3vw;
         align-items: center;
-        justify-content: center;
+
         background-color: ${colors.lightBeige}; 
         height:78.6vh;
         width: 100%;
@@ -40,6 +42,7 @@ function Upload() {
         font-size:3vw;
         color: ${colors.mocha};
         font-weight: 900;
+        margin-bottom:2vw;
     `
     const Oval = styled.input`
         &:hover {
@@ -65,6 +68,14 @@ function Upload() {
         content: Choose File;
         margin-bottom:3vw;
     `
+    const Button = styled.button`
+        width: 15vw;
+        height: 4vh;
+        background: #DDB892;
+        border-radius: 25%;
+        border: none;
+        cursor: pointer;
+    `
     const Submit = styled.button`
         &:hover {
             background-color: ${colors.mocha};
@@ -87,11 +98,39 @@ function Upload() {
         font-weight: 900;
         margin-top:3vw;
     `
+    const LinkIn = styled.input`
+        margin-bottom:2vw;
+    `
+    const Form = styled.form`
+        margin-top:2vw;
+    `
+    const Subject = styled.div`
+        height:2vw;
+        width: 10vw;
+        border: solid;
+        &:hover {
+            background-color: ${colors.mocha};
+            transition: background-color 0.5s;
+        }
+    `
+    const Subjects = styled.div`
+
+        display:flex;
+        margin-left:auto;
+        margin-right:auto;
+        margin-bottom:1vw;
+    `
+    const subjects = data.subjects;
+    const fTypes = data.fileTypes;
     const [files, setFiles] = useState([]);
     const [process, setProcess] = useState(false);
     const [selectedFile, setSelectedFile] = useState();
     const [preview, setPreview] = useState();
-    
+    const [type, setType] = useState(0);
+    const [subject, setSubject] = useState(subjects[0]);
+    const [fType, setFType] = useState(fTypes[0]);
+    const [link, setLink] = useState(undefined);
+    const [name, setName] = useState("unititled");
     
     const onInputChange = (e) => {
         setFiles(e.target.files)
@@ -109,41 +148,65 @@ function Upload() {
         reader.readAsText(e.target.files[0]);
         console.log(preview);
     };
+    const onLinkChange = (e) =>{
+        setLink(e.target.value);
+    }
+    const onNameChange = (e) =>{
+        setName(e.target.value);
+    }
     const onSubmit = (e) =>{
         e.preventDefault();
-        console.log("Console");
-        const data = new FormData();
-        console.log(files);
-        for(let i = 0; i < files.length; i++) {
-            console.log(files[i]);
-            data.append('file', files[i]);
+        if(link){
+            const inFile = {
+                name: name,
+                link: link
+            };
+            data.files[subject][fType].append(inFile);
+ 
         }
-        console.log(data.getAll('file'));
-        axios.post('//localhost:8888/upload', data)
-            .then((response) => {
-                toast.success('Upload Success');
-                
-            })
-            .catch((e) => {
-                toast.error('Upload Error')
-        })
-        setProcess(true);
     }
+    const chooseSub = subjects.map((value)=>{
+        const styles = {
+            backgroundColor: value == subject?colors.mocha: "transparent",
+            height:"2vw",
+            width: "10vw",
+            border: "solid",
+
+        }
+        return (value == subject)?<Subject onClick={() => {setSubject(value)}} style = {styles} >{value}</Subject>:<Subject onClick={() => {setSubject(value)}}>{value}</Subject>;
+    });
+    const chooseType = fTypes.map((value)=>{
+        const styles = {
+            backgroundColor: value == fType?colors.mocha: "transparent",
+            height:"2vw",
+            width: "10vw",
+            border: "solid",
+
+        }
+        return (value == fType)?<Subject onClick={() => {setFType(value)}} style = {styles} >{value}</Subject>:<Subject onClick={() => {setFType(value)}}>{value}</Subject>;
+    });
     return (
         <Container>
             <Nav/>
             <UploadContainer>
                 <Header>Upload Notes</Header>
-                <form method='post' onSubmit={onSubmit}>
-                    <Oval type = "file" onChange={onInputChange} accept = "text/*" class="hideMe form-control col-lg-2 col-md-2 col-sm-2">
-                    </Oval>
+                
+                <Button onClick={()=> (setType((type+1)%2))}>{type == 0?"File Mode" : "Link Mode"}</Button>
+                <Form method='post' onSubmit={onSubmit}>
+                    {type == 0 && <Oval type = "file" onChange={onInputChange} accept = "text/*" class="hideMe form-control col-lg-2 col-md-2 col-sm-2"></Oval>}
+                    {type == 1 && <LinkIn type="text" defaultValue = "Link" onChange={onLinkChange}></LinkIn>}
+                    {type == 1 && <LinkIn type="text" defaultValue = "File Name" onChange={onNameChange}></LinkIn>}
+                    <Subjects>{chooseSub}</Subjects>
+                    <Subjects>{chooseType}</Subjects>
                     <Dropbox>
-                        {selectedFile && preview}
+                        {type == 0 && selectedFile && preview}
+                        {link && <iframe src = {link}></iframe>}
                     </Dropbox>
                     <Submit>
                         Submit
                     </Submit>
-                </form>
+                </Form>
+                
             </UploadContainer>
         </Container>
     );
