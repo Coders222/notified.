@@ -132,7 +132,7 @@ function Upload() {
     // const [link, setLink] = useState(undefined);
     // const [fName, setFName] = useState("unititled");
     const [file, setFile] = useState({
-        topic: `Untitled ${subjects[0]} Topic`,
+        topic: `Untitled Topic`,
         subject: subjects[0],
         name: "untitled",
         type: fTypes[0],
