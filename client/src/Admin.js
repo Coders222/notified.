@@ -3,12 +3,13 @@ import React, { useState} from 'react';
 import styled from 'styled-components'; 
 import theme from './theme';
 import './index.css';
-import Nav from './Nav'
+import AdminView from './AdminView';
+import AdminLock from './AdminLock';
 
 
 const {fonts} = theme;
 const {colors} = theme;
-function Admin() {
+function Admin(props) {
 
     const Container = styled.div`
         width: 100vw;
@@ -18,13 +19,12 @@ function Admin() {
         justify-content: center;
 
     `
-
+    var data = props.data;
+    const [success, setSuccess] = useState(false);
     return (
         <div>
-            <Nav/>
-            <Container>
-                
-            </Container>
+            {(success) ? <AdminView/> : <AdminLock data={success= () => (setSuccess(true))}/>}
+
 
         </div>
     )
