@@ -9,7 +9,7 @@ import AdminLock from './AdminLock';
 
 const {fonts} = theme;
 const {colors} = theme;
-function Admin(props) {
+function Admin() {
 
     const Container = styled.div`
         width: 100vw;
@@ -19,13 +19,10 @@ function Admin(props) {
         justify-content: center;
 
     `
-    var data = props.data;
     const [success, setSuccess] = useState(false);
     return (
         <div>
-            {(success) ? <AdminView/> : <AdminLock data={success= () => (setSuccess(true))}/>}
-
-
+            {(success) ? <AdminView/> : <AdminLock success={ ()=>setSuccess(true)}/>}
         </div>
     )
 

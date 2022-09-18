@@ -9,7 +9,7 @@ import axios from 'axios';
 
 const {fonts} = theme;
 const {colors} = theme;
-function AdminLock(props) {
+function AdminLock (props) {
 
     const Container = styled.div`
         width: 99.1vw;
@@ -67,11 +67,11 @@ function AdminLock(props) {
     
     function onSubmit() {
         axios.post('http://localhost:5000/registers/login',{password:password})
-        .then(res => console.log(res.data));
-
+        .then(res => res.json())
+        .then(data => (data.admin && success));
     }
     const [password, setPassword] = useState('');
-    var success = props.data.success;
+    var success = props.success;
     return (
         <div>
             <Nav/>
