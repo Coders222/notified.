@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import theme from './theme';
 import './index.css';
 import Nav from './Nav'
+import axios from 'axios';
 
 
 const {fonts} = theme;
@@ -11,7 +12,7 @@ const {colors} = theme;
 function AdminLock() {
 
     const Container = styled.div`
-        width: 100vw;
+        width: 99.1vw;
         background-color: ${colors.lightBeige};
         height: 80vw;
         display: flex;
@@ -31,9 +32,10 @@ function AdminLock() {
     
     const InputBox = styled.input`
         type: text;
-        width: 40vw;
+        width: 20vw;
         height: 2vw;
         font-size: 2vw;
+        margin-left: 8vw;
     `
 
     const Button = styled.button`
@@ -52,7 +54,22 @@ function AdminLock() {
 
 
     `
+
+    function myFunction() {
+        var x = document.getElementById("myInput");
+        if (x.type === "password") {
+          x.type = "text";
+        } 
+        else {
+          x.type = "password";
+        }
+      }
     
+    function onSubmit() {
+        axios.post('http://localhost:5000/registers/login',{password:password})
+        .then(res => res.json())
+        .then(data => console.log(data));
+    }
     const [password, setPassword] = useState('');
     return (
         <div>
@@ -61,13 +78,22 @@ function AdminLock() {
                 <Container>
                     <Box>
                         <Header>Enter Password</Header>
-                        <InputBox 
+                        <InputBox
                             required
+                            id="myInput"
                             onChange = {(e) => setPassword(e.target.value)}
                             value = {password}
                             autoFocus
+                            type="password"
+                            
                         ></InputBox>
-                        <Button href = onSubmit() => {(password.equals("lemmein")) ? "/#/admin": "/#/AdminLock"}>
+                        <label>
+                            
+                            <input type="checkbox" onClick={myFunction} script="margin-left: 2vw"/>
+                            Toggle Visibility
+                        </label>
+                        
+                        <Button onClick = {onSubmit}>
                             Submit
                         </Button>
                         <h3>
