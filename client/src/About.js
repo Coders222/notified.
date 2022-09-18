@@ -109,7 +109,7 @@ function About() {
                         Creators
                         <Box>
                             <Name href='https://andyliang.xyz/'>
-                                Andy orionxroman Nicky Kanaad
+                                Andy Orion Nicky Kanaad
                             </Name>
                             <Picture></Picture> <Picture2></Picture2>
                         </Box>
