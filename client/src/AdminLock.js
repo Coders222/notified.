@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import theme from './theme';
 import './index.css';
 import Nav from './Nav'
+import axios from 'axios';
 
 
 const {fonts} = theme;
@@ -11,7 +12,7 @@ const {colors} = theme;
 function AdminLock() {
 
     const Container = styled.div`
-        width: 100vw;
+        width: 99.1vw;
         background-color: ${colors.lightBeige};
         height: 80vw;
         display: flex;
@@ -31,9 +32,10 @@ function AdminLock() {
     
     const InputBox = styled.input`
         type: text;
-        width: 40vw;
+        width: 20vw;
         height: 2vw;
         font-size: 2vw;
+        margin-left: 8vw;
     `
 
     const Button = styled.button`
@@ -63,8 +65,11 @@ function AdminLock() {
         }
       }
     
+    function onSubmit() {
+        axios.post('http://localhost:5000/registers/login',{password:password})
+        .then(res => console.log(res.data));
+    }
     const [password, setPassword] = useState('');
-    const [label, setLabel] = useState('');
     return (
         <div>
             <Nav/>
@@ -83,11 +88,11 @@ function AdminLock() {
                         ></InputBox>
                         <label>
                             
-                            <input type="checkbox" onClick={myFunction}/>
-                            {label}
+                            <input type="checkbox" onClick={myFunction} script="margin-left: 2vw"/>
+                            Toggle Visibility
                         </label>
                         
-                        <Button>
+                        <Button onClick = {onSubmit}>
                             Submit
                         </Button>
                         <h3>
