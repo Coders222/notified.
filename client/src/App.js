@@ -24,7 +24,6 @@ function App() {
                  <Route exact path='/about' element={<About/>}></Route>
                  <Route exact path='/upload' element={<Upload/>}></Route>
                  <Route exact path='/about' element={<About/>}></Route>
-                 <Route exact path='/adminlock' element={<AdminLock/>}></Route>
                  <Route exact path='/admin' element={<Admin/>}></Route>
                  <Route exact path='/documents/:subject' element={<Documents/>}></Route>
           </Routes>
