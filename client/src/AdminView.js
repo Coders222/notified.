@@ -45,6 +45,7 @@ function AdminView(props) {
             id:value._id
         }}></Pending>)
     }
+    
     return (
         <div>
             <Nav/>

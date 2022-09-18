@@ -32,15 +32,37 @@ router.route('/:name').get((req, res) => {
     .then(document => res.json(document))
     .catch(err => res.status(400).json('Error: ' + err));
 });
-router.route('/update/:name').post((req,res)=>{
+router.route('/update').post((req,res)=>{
+    
     Document.find({name:req.body.name})
       .then(document =>{
-        document.tests = [...document.tests, ...req.body.tests];
-        document.notes = [...document.notes, ...req.body.notes];
-
-        document.save()
+        if(!document){
+          const subject = req.body.subject;
+          const topic = req.body.topic;
+          const type = req.body.type;
+          const name = req.body.name;
+          const link = req.body.link;
+          const tests = [];
+          const notes = [];
+          if(type == "test")tests.push({name:name,link:link});
+          else notes.push({name:name,link:link});
+          const newDocument = new Document ({
+            topic,
+            subject,
+            tests,
+            notes,
+          });
+          newDocument.save()
           .then(() => res.json('Exercise updated!'))
           .catch(err => res.status(400).json('Error: ' + err));
+        }else{
+          document.tests = [...document.tests, ...req.body.tests];
+          document.notes = [...document.notes, ...req.body.notes];
+
+          document.save()
+            .then(() => res.json('Exercise updated!'))
+            .catch(err => res.status(400).json('Error: ' + err));
+        }
       })
       .catch(err => res.status(400).json('Error: ' + err));
 });
