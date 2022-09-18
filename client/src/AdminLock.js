@@ -52,8 +52,19 @@ function AdminLock() {
 
 
     `
+
+    function myFunction() {
+        var x = document.getElementById("myInput");
+        if (x.type === "password") {
+          x.type = "text";
+        } 
+        else {
+          x.type = "password";
+        }
+      }
     
     const [password, setPassword] = useState('');
+    const [label, setLabel] = useState('');
     return (
         <div>
             <Nav/>
@@ -61,13 +72,22 @@ function AdminLock() {
                 <Container>
                     <Box>
                         <Header>Enter Password</Header>
-                        <InputBox 
+                        <InputBox
                             required
+                            id="myInput"
                             onChange = {(e) => setPassword(e.target.value)}
                             value = {password}
                             autoFocus
+                            type="password"
+                            
                         ></InputBox>
-                        <Button href = onSubmit() => {(password.equals("lemmein")) ? "/#/admin": "/#/AdminLock"}>
+                        <label>
+                            
+                            <input type="checkbox" onClick={myFunction}/>
+                            {label}
+                        </label>
+                        
+                        <Button>
                             Submit
                         </Button>
                         <h3>

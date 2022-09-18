@@ -10,7 +10,7 @@ import About from './About';
 import Upload from './Upload';
 import Documents from './Documents';
 import AdminLock from './AdminLock';
-import Admin from `./Admin`;
+import Admin from './Admin';
 
 
 function App() {
