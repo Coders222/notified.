@@ -46,6 +46,8 @@ function LandingPage() {
     background-size: cover;
     display: flex;
     position: relative;
+    align-items: center;
+    justify-content: center;
 
     
   `;
@@ -90,11 +92,8 @@ function LandingPage() {
     border-radius: 50%;
     border: none;
     border-radius: 64px;
-    position: fixed;
-    display: inline-block;
+    position: relative;
     cursor: pointer;
-    top: 38vw;
-    left: 38vw;
     font-size: 2.0vw;
 
     font-weight: 900;
@@ -107,16 +106,19 @@ function LandingPage() {
         
           
         <Background>
-            <Textbox>
-                <TextWrapper>
-                  The Robinhood for Students.
-                </TextWrapper>
-            </Textbox>
-            <Oval>
-              <Started href='/#/menu'>
-                Click to Start Noting
-              </Started> 
-            </Oval>
+            <div>
+              <Textbox>
+                  <TextWrapper>
+                    The Robinhood for Students.
+                  </TextWrapper>
+              </Textbox>
+              <Oval>
+                <Started href='/#/menu'>
+                  Click to Start Noting
+                </Started> 
+              </Oval>
+            </div>
+            
         </Background>
 
          
