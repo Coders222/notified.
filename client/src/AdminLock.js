@@ -9,7 +9,7 @@ import axios from 'axios';
 
 const {fonts} = theme;
 const {colors} = theme;
-function AdminLock() {
+function AdminLock(props) {
 
     const Container = styled.div`
         width: 99.1vw;
@@ -71,6 +71,7 @@ function AdminLock() {
         .then(data => console.log(data));
     }
     const [password, setPassword] = useState('');
+    var success = props.data.success;
     return (
         <div>
             <Nav/>
