@@ -25,13 +25,13 @@ function Pending(props) {
     const ButtonWrapper = styled.div`
         display:flex;
     `
-    const {name, type,topic, subject, link,id} = props.data;
+    const {name, type,topic, subject, link,id,refresh} = props.data;
     function onAccept(){
         const file = {
             name: name,
             type: type,
             topic: topic,
-            subject:subject,
+            subject :subject,
             link: link
         };
         console.log(file);
@@ -42,6 +42,7 @@ function Pending(props) {
     function remove(){
         axios.delete('http://localhost:5000/pendings/'+id)
         .then(response => { console.log(response.data)});
+        refresh();
     }
     return (
         <div>
