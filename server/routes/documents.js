@@ -27,8 +27,8 @@ router.route('/add').post((req, res) => {
   .catch(err => res.status(400).json('Error: ' + err));
 
 });
-router.route('/:name').get((req, res) => {
-  Document.find({name:req.params.name})
+router.route('/:topic').get((req, res) => {
+  Document.find({topic:req.params.topic})
     .then(document => res.json(document))
     .catch(err => res.status(400).json('Error: ' + err));
 });
@@ -54,14 +54,14 @@ router.route('/update').post((req,res)=>{
             notes:notes,
           });
           newDocument.save()
-          .then(() => res.json('Exercise updated!'))
+          .then(() => res.json('New topic and note added!'))
           .catch(err => res.status(400).json('Server issue diff Error: ' + err));
         }else{
           if(type == "tests")document[0].tests.push({name:name,link:link});
           else document[0].notes.push({name:name,link:link});
 
           document[0].save()
-            .then(() => res.json('Exercise updated!'))
+            .then(() => res.json('note updated!'))
             .catch(err => res.status(400).json('Error: ' + err));
         }
       })
