@@ -4,9 +4,9 @@ import styled from 'styled-components';
 import theme from './theme';
 import Nav from './Nav';
 import { useParams } from 'react-router-dom';
-import temp from './Documents.json';
 import testIcon from './images/testIcon.png';
 import noteIcon from './images/noteIcon.png';
+import useFetch from './useFetch';
 
 const {fonts} = theme;
 const {colors} = theme;
@@ -72,13 +72,11 @@ function Documents(props) {
     `
 
     
-    const data = temp.files;
-    const {subject} = useParams();
-    let subjectData = undefined;
-    if(subject in data){
-        subjectData = data[subject];
-        console.log(subjectData)
-    }
+    
+    const {topic,subject} = useParams();
+    let subjectData = useFetch("http://localhost:5000/documents/"+subject + "/" + topic,true).data;
+    console.log(subjectData);
+    if(subjectData) subjectData = subjectData[0];
     const [curFile, setCurFile] = useState(undefined);
     let tests = (subjectData!= undefined? subjectData.tests:undefined);
     let notes = (subjectData!= undefined? subjectData.notes:undefined);
@@ -96,7 +94,7 @@ function Documents(props) {
         <div>
             <Nav/>
             <Container>             
-                <h1>{subject.charAt(0).toUpperCase()+subject.slice(1)}</h1>
+                <h1>{topic.charAt(0).toUpperCase()+topic.slice(1)}</h1>
                 <DataWrapper>
                     <FileNav>
                         <h2>Files</h2>

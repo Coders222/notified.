@@ -94,24 +94,27 @@ function Images(){
     `
     const [refresh, setRefresh] = useState();
     const topics = useFetch('http://localhost:5000/documents/',  refresh)
-    const linkPre = "https://coders222.github.io/AutumnHacks/#/documents/"
-    const options = topics.map((value) =>{
-        const styles = {
-            width: "15vw",
-            height: "15vw",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-            backgroundSize: "cover",
-            backgroundImage: `url(${imagesTemp[value.subject]})`,
-            margin: "auto",
-            marginTop: "1vw"
-        }
-        return <Box href= {linkPre + value.topic}>
-            <div style={styles}/>
-            <Subtitle>{value.topic}</Subtitle>
-        </Box>
-    })
-
+    let options = undefined;
+    console.log(topics);
+    const linkPre = "https://localhost:3000/#/documents/"
+    if(topics.data){
+        options = topics.data.map((value) =>{
+            const styles = {
+                width: "15vw",
+                height: "15vw",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+                backgroundImage: `url(${imagesTemp[value.subject]})`,
+                margin: "auto",
+                marginTop: "1vw"
+            }
+            return <Box href= {linkPre + value.subject +"/"+ value.topic}>
+                <div style={styles}/>
+                <Subtitle>{value.topic}</Subtitle>
+            </Box>
+        })
+    }
     return(
         <div>
             <Nav></Nav>

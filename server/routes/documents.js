@@ -3,7 +3,7 @@ var router = express.Router();
 let Document = require(`../models/documents.model`);
 /* GET the name and subject of every document catagory i.e Advanced Functions Math */
 router.get('/', function(req, res, next) {
-  Document.find('topic subject')
+  Document.find({},'topic subject')
   .then(documents => res.json(documents))
   .catch(err => res.status(400).json('Error: ' + err));
 });
@@ -27,8 +27,8 @@ router.route('/add').post((req, res) => {
   .catch(err => res.status(400).json('Error: ' + err));
 
 });
-router.route('/:topic').get((req, res) => {
-  Document.find({topic:req.params.topic})
+router.route('/:subject/:topic').get((req, res) => {
+  Document.find({subject:req.params.subject,topic:req.params.topic})
     .then(document => res.json(document))
     .catch(err => res.status(400).json('Error: ' + err));
 });

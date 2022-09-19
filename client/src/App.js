@@ -25,7 +25,7 @@ function App() {
                  <Route exact path='/upload' element={<Upload/>}></Route>
                  <Route exact path='/about' element={<About/>}></Route>
                  <Route exact path='/admin' element={<Admin/>}></Route>
-                 <Route exact path='/documents/:subject' element={<Documents/>}></Route>
+                 <Route exact path='/documents/:subject/:topic' element={<Documents/>}></Route>
           </Routes>
         </div>
       </Router>
