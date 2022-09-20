@@ -172,7 +172,7 @@ function Upload() {
         console.log("submitted")
         if(file.link){
             
-            axios.post('http://localhost:5000/pendings/add',file)
+            axios.post('https://staynotified.herokuapp.com/pendings/add',file)
             .then(res => console.log(res.data));
         }
     }

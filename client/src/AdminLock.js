@@ -72,7 +72,7 @@ function AdminLock(props){
         const user = {
             password:password
         };
-        axios.post('http://localhost:5000/registers/login', user)
+        axios.post('https://staynotified.herokuapp.com/registers/login', user)
         .then(response => ((response.data.admin)? success():setMessage(response.data.message)))
         // .then(data => (data.admin && success));
     }
@@ -91,7 +91,7 @@ function AdminLock(props){
                             value = {password}
                             onChange = {(e) => {setMessage("");setPassword(e.target.value)}}
                             autoFocus
-                            type="password"
+
                             
                         ></InputBox>
                         <label>

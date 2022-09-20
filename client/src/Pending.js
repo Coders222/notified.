@@ -35,12 +35,12 @@ function Pending(props) {
             link: link
         };
         console.log(file);
-        axios.post('http://localhost:5000/documents/update',file)
+        axios.post('https://staynotified.herokuapp.com/update',file)
         .then(res => console.log(res.data));
         remove();
     }
     function remove(){
-        axios.delete('http://localhost:5000/pendings/'+id)
+        axios.delete('https://staynotified.herokuapp.com/pendings/'+id)
         .then(response => { console.log(response.data)});
         refresh();
     }

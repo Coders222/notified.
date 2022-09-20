@@ -74,7 +74,7 @@ function Documents(props) {
     
     
     const {topic,subject} = useParams();
-    let subjectData = useFetch("http://localhost:5000/documents/"+subject + "/" + topic,true).data;
+    let subjectData = useFetch("https://staynotified.herokuapp.com/documents/"+subject + "/" + topic,true).data;
     console.log(subjectData);
     if(subjectData) subjectData = subjectData[0];
     const [curFile, setCurFile] = useState(undefined);

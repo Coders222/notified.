@@ -33,7 +33,7 @@ function AdminView(props) {
         border:solid;
     `
     const [refresh, setRefresh] = useState(false);
-    const values =  useFetch('http://localhost:5000/pendings/',refresh);
+    const values =  useFetch('https://staynotified.herokuapp.com/pendings/',refresh);
     console.log(values);
     let pendings = undefined;
     

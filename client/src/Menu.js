@@ -93,10 +93,10 @@ function Images(){
         margin-top: 1vw;
     `
     const [refresh, setRefresh] = useState();
-    const topics = useFetch('http://localhost:5000/documents/',  refresh)
+    const topics = useFetch('https://staynotified.herokuapp.com/documents/',  refresh)
     let options = undefined;
     console.log(topics);
-    const linkPre = "http://localhost:3000/#/documents/"
+    const linkPre = "/#/documents/"
     if(topics.data){
         options = topics.data.map((value) =>{
             const styles = {
