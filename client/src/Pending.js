@@ -35,14 +35,13 @@ function Pending(props) {
             link: link
         };
         console.log(file);
-        axios.post('https://staynotified.herokuapp.com/update',file)
-        .then(res => console.log(res.data));
-        remove();
+        axios.post('https://staynotified.herokuapp.com/documents/update',file)
+        .then(res => console.log(res.data)).then(remove());
     }
     function remove(){
         axios.delete('https://staynotified.herokuapp.com/pendings/'+id)
-        .then(response => { console.log(response.data)});
-        refresh();
+        .then(response => { console.log(response.data)}).then(refresh());
+
     }
     return (
         <div>

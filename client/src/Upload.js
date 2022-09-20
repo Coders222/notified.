@@ -157,7 +157,13 @@ function Upload() {
     };
     const onLinkChange = (e) =>{
         e.preventDefault();
-        setFile({...file,link : e.target.value});
+        let link = e.target.value;
+        let temp = link.split("/");
+        if(temp[2] === "drive.google.com"){
+            link = link.substring(0,link.lastIndexOf("/"))+"/preview";
+        }
+        
+        setFile({...file,link :link});
     }
     const onNameChange = (e) =>{
         e.preventDefault();
