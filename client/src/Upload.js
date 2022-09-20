@@ -6,7 +6,7 @@ import { toast} from 'react-toastify';
 import logo from './images/logo.png';
 import theme from './theme';
 import data from './Documents.json';
-
+import useForm  from './useForm';
 
 const {fonts} = theme;
 const {colors} = theme;
@@ -165,7 +165,7 @@ function Upload() {
     }
     const onTopicChange = (e) => {
         e.preventDefault();
-        setFile({...file,topic:e.targer.value});
+        setFile({...file,topic:e.target.value});
     }
     const onSubmit = (e) =>{
         e.preventDefault();
@@ -196,6 +196,12 @@ function Upload() {
         }
         return (value == file.type)?<Subject onClick={() => {setFile({...file, type:value})}} style = {styles} >{value}</Subject>:<Subject onClick={() => {setFile({...file, type:value})}}>{value}</Subject>;
     });
+    const input = ({onChange,value,key}) => {
+        // do your stuff
+        return (
+           <input key = {key} type='text' onChange={onChange} value={value}  />
+        );
+     };
     return (
         <Container>
             <Nav/>
@@ -204,9 +210,13 @@ function Upload() {
                 <Button onClick={()=> (setType((type+1)%2))}>{type == 0?"File Mode" : "Link Mode"}</Button>
                 <Form method='post' onSubmit={onSubmit}>
                     {type == 0 && <Oval type = "file" onChange={onInputChange} accept = "text/*" class="hideMe form-control col-lg-2 col-md-2 col-sm-2"></Oval>}
-                    {type == 1 && <LinkIn  type="text"  placeholder = "Link"onChange={onLinkChange} value = {file.link}></LinkIn>}
-                    {<LinkIn autoFocus="autoFocus" type="text"  onChange={onNameChange} value = {file.name}></LinkIn>}
-                    {<LinkIn type="text" onChange = {onTopicChange} value= {file.topic}></LinkIn>}
+                    {type == 1 && input({onChange : onLinkChange, value:file.link, key:"link"})}
+                    <div>
+                    {input({onChange : onNameChange, value:file.name, key: "name"})}
+                    {input({onChange : onTopicChange, value:file.topic, key:"topic"})}
+                    {/* {<LinkIn key = "name" type="text"  onChange={onNameChange} value = {file.name}></LinkIn>}
+                    {<LinkIn key = "topic" type="text" placeholder = "topic" onChange = {onTopicChange} value= {file.topic}></LinkIn>} */}
+                    </div>
                     <Subjects>{chooseSub}</Subjects>
                     <Subjects>{chooseType}</Subjects>
                     <Dropbox>

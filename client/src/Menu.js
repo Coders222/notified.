@@ -96,12 +96,12 @@ function Images(){
     const topics = useFetch('http://localhost:5000/documents/',  refresh)
     let options = undefined;
     console.log(topics);
-    const linkPre = "https://localhost:3000/#/documents/"
+    const linkPre = "http://localhost:3000/#/documents/"
     if(topics.data){
         options = topics.data.map((value) =>{
             const styles = {
-                width: "15vw",
-                height: "15vw",
+                width: "10vw",
+                height: "10vw",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
                 backgroundSize: "cover",

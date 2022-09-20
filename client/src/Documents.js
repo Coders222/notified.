@@ -94,7 +94,7 @@ function Documents(props) {
         <div>
             <Nav/>
             <Container>             
-                <h1>{topic.charAt(0).toUpperCase()+topic.slice(1)}</h1>
+                <h1>{subject.charAt(0).toUpperCase()+subject.slice(1) + " - " + topic.charAt(0).toUpperCase()+topic.slice(1)}</h1>
                 <DataWrapper>
                     <FileNav>
                         <h2>Files</h2>
