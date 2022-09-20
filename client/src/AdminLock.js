@@ -31,7 +31,7 @@ function AdminLock(props){
     `
     
     const InputBox = styled.input`
-        type: text;
+        type: password;
         width: 20vw;
         height: 2vw;
         font-size: 2vw;
@@ -90,9 +90,8 @@ function AdminLock(props){
                             id="myInput"
                             value = {password}
                             onChange = {(e) => {setMessage("");setPassword(e.target.value)}}
-                            
                             autoFocus
-                            type="text"
+                            type="password"
                             
                         ></InputBox>
                         <label>
