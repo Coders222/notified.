@@ -1,5 +1,5 @@
 import {useState, useEffect} from "react"
-const useFetch = url =>{
+const useFetch = (url,refresh) =>{
     const [data, setData] = useState();
     const [error, setError] = useState();
     const [loading, setLoading] = useState(true);
@@ -18,7 +18,7 @@ const useFetch = url =>{
             .then(setData)
             .catch(setError)
             .finally(() => setLoading(false));
-    },[url]);
+    },[url,refresh]);
     // console.log(url)
     return {data,error, loading, refetch};
 };

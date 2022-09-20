@@ -32,9 +32,14 @@ function AdminView(props) {
         overflow-x:scroll;
         border:solid;
     `
-    const values =  useFetch('http://localhost:5000/pendings/');
+    const [refresh, setRefresh] = useState(false);
+    const values =  useFetch('http://localhost:5000/pendings/',refresh);
     console.log(values);
     let pendings = undefined;
+    
+    function toggleRefresh(){
+        setRefresh(!refresh);
+    }
     if(values.data){
         pendings = values.data.map((value)=><Pending data = {{
             name:value.name,
@@ -42,9 +47,11 @@ function AdminView(props) {
             subject:value.subject,
             topic:value.topic,
             link:value.link,
-            id:value._id
+            id:value._id,
+            refresh: toggleRefresh
         }}></Pending>)
     }
+
     return (
         <div>
             <Nav/>
@@ -54,6 +61,7 @@ function AdminView(props) {
                     <PendingWrapper>
                         {(pendings)?pendings:"Loading"}
                     </PendingWrapper>
+                    <button onClick={toggleRefresh}>Refresh</button>
                 </Preview>
             </Container>
 

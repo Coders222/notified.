@@ -163,6 +163,10 @@ function Upload() {
         e.preventDefault();
         setFile({...file,name : e.target.value});
     }
+    const onTopicChange = (e) => {
+        e.preventDefault();
+        setFile({...file,topic:e.targer.value});
+    }
     const onSubmit = (e) =>{
         e.preventDefault();
         console.log("submitted")
@@ -197,12 +201,12 @@ function Upload() {
             <Nav/>
             <UploadContainer>
                 <Header>Upload Notes</Header>
-                
                 <Button onClick={()=> (setType((type+1)%2))}>{type == 0?"File Mode" : "Link Mode"}</Button>
                 <Form method='post' onSubmit={onSubmit}>
                     {type == 0 && <Oval type = "file" onChange={onInputChange} accept = "text/*" class="hideMe form-control col-lg-2 col-md-2 col-sm-2"></Oval>}
                     {type == 1 && <LinkIn  type="text"  placeholder = "Link"onChange={onLinkChange} value = {file.link}></LinkIn>}
-                    {type == 1 && <LinkIn autoFocus="autoFocus" type="text"  onChange={onNameChange} value = {file.name}></LinkIn>}
+                    {<LinkIn autoFocus="autoFocus" type="text"  onChange={onNameChange} value = {file.name}></LinkIn>}
+                    {<LinkIn type="text" onChange = {onTopicChange} value= {file.topic}></LinkIn>}
                     <Subjects>{chooseSub}</Subjects>
                     <Subjects>{chooseType}</Subjects>
                     <Dropbox>

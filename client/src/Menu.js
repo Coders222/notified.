@@ -6,11 +6,17 @@ import './Menu.css';
 import Nav from './Nav';
 import styled from 'styled-components';
 import theme from './theme'; 
+import useFetch from './useFetch';
+import { useState } from 'react';
 
 
 const {colors} = theme;
 function Images(){
-
+    const imagesTemp = {
+        math: img2,
+        accounting: img1,
+        chemistry: img3
+    }
     const Container = styled.div`
         width: 100vw;
         background-color: ${colors.lightBeige};
@@ -86,16 +92,36 @@ function Images(){
         font-weight: 900;
         margin-top: 1vw;
     `
-
-
-
+    const [refresh, setRefresh] = useState();
+    const topics = useFetch('http://localhost:5000/documents/',  refresh)
+    let options = undefined;
+    console.log(topics);
+    const linkPre = "https://localhost:3000/#/documents/"
+    if(topics.data){
+        options = topics.data.map((value) =>{
+            const styles = {
+                width: "15vw",
+                height: "15vw",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+                backgroundImage: `url(${imagesTemp[value.subject]})`,
+                margin: "auto",
+                marginTop: "1vw"
+            }
+            return <Box href= {linkPre + value.subject +"/"+ value.topic}>
+                <div style={styles}/>
+                <Subtitle>{value.topic}</Subtitle>
+            </Box>
+        })
+    }
     return(
         <div>
             <Nav></Nav>
             <Container>
 
                 <Row>
-                    <Box href='https://coders222.github.io/AutumnHacks/#/documents/math'>
+                    {/* <Box href='https://coders222.github.io/AutumnHacks/#/documents/math'>
                         <Math/>
                         <Subtitle>Math</Subtitle>
                     </Box>
@@ -111,9 +137,9 @@ function Images(){
                         <Accounting/>
                         <Subtitle>Accounting</Subtitle>
 
-                    </Box>
+                    </Box> */}
 
-
+                    {options}
                 </Row>
 
             </Container>
