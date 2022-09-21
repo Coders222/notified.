@@ -37,9 +37,9 @@ function AdminView(props) {
     console.log(values);
     let pendings = undefined;
     
-    function toggleRefresh(){
-        setRefresh(!refresh);
-    }
+    const toggleRefresh = () =>
+        (setRefresh(!refresh));
+    
     if(values.data){
         pendings = values.data.map((value)=><Pending data = {{
             name:value.name,
@@ -48,7 +48,7 @@ function AdminView(props) {
             topic:value.topic,
             link:value.link,
             id:value._id,
-            refresh: toggleRefresh
+            re: toggleRefresh
         }}></Pending>)
     }
 
