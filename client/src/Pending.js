@@ -25,7 +25,7 @@ function Pending(props) {
     const ButtonWrapper = styled.div`
         display:flex;
     `
-    const {name, type,topic, subject, link,id,refresh} = props.data;
+    const {name, type,topic, subject, link,id,re} = props.data;
     function onAccept(){
         const file = {
             name: name,
@@ -34,15 +34,18 @@ function Pending(props) {
             subject :subject,
             link: link
         };
+        
+        axios.delete('https://staynotified.herokuapp.com/pendings/'+id)
+        .then(response => { console.log(response.data)});
         console.log(file);
-        axios.post('http://localhost:5000/documents/update',file)
+        axios.post('https://staynotified.herokuapp.com/documents/update',file)
         .then(res => console.log(res.data));
-        remove();
+        re();
     }
     function remove(){
-        axios.delete('http://localhost:5000/pendings/'+id)
-        .then(response => { console.log(response.data)});
-        refresh();
+        axios.delete('https://staynotified.herokuapp.com/pendings/'+id)
+        .then(response => { console.log(response.data)}).then(re());
+
     }
     return (
         <div>

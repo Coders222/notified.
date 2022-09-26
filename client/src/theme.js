@@ -6,7 +6,8 @@ const theme = {
         orange: '#E38B29',
         title: '#C07010',
         mocha: '#816950',
-
+        darkBlue: '#003459',
+        lightBlue: '#00A8E8',
     },
     fonts: {
         primary: 'Nunito Sans, sans-serif',
