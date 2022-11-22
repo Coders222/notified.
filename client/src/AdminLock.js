@@ -91,6 +91,7 @@ function AdminLock(props){
                             value = {password}
                             onChange = {(e) => {setMessage("");setPassword(e.target.value)}}
                             autoFocus
+                            type="password"
 
                             
                         ></InputBox>

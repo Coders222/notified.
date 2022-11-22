@@ -16,8 +16,8 @@ function Nav() {
     `
     const Links = styled.div`
 
-        float: right;
-        margin-top:auto;
+        display: flex;
+        margin-top: auto;
     `
     const Link = styled.a`
         font-family: 'Poor Story', sans-serif;
@@ -34,10 +34,10 @@ function Nav() {
         width:3vw;
         background-image: url(${github});
         background-repeat: no-repeat;
-        background-position: right;
-        background-size: 2vw;
-        margin-left: 42vw;
-        margin-top: 2vh;
+        background-position: center;
+        background-size: 3vw;
+        margin-right: 20px;
+        margin-left: auto;
     `
     return (
         <Container>
