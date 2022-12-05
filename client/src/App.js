@@ -5,12 +5,12 @@ import React from 'react';
 import styled from 'styled-components'; 
 import LandingPage from './LandingPage';
 import Nav from './Nav';
-import Menu from './Menu';
-import About from './About';
-import Upload from './Upload';
-import Documents from './Documents';
-import AdminLock from './AdminLock';
-import Admin from './Admin';
+import Menu from './tabs/Menu';
+import About from './tabs/About';
+import Upload from './upload/Upload';
+import Documents from './upload/Documents';
+import AdminLock from './admin/AdminLock';
+import Admin from './admin/Admin';
 
 
 function App() {
